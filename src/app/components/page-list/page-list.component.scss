@@ -1,0 +1,36 @@
+.list-view {
+   width: 100%;
+   padding: 1rem*2;
+}
+.subtitle{
+     color: #fff;
+     font-size: 2rem;
+     cursor: pointer;
+     padding: 0;
+     margin: 0 0 1rem*2 0;
+     transition: all 0.5;
+     -webkit-transition: all 0.5;
+     -moz-transition: all 0.5;
+     -ms-transition: all 0.5;
+     -o-transition: all 0.5;
+
+      span {
+         font-size: 1rem;
+      }
+}
+
+.subtitle:hover {
+  color: aqua;
+  transition: all 0.5;
+  -webkit-transition: all 0.5;
+  -moz-transition: all 0.5;
+  -ms-transition: all 0.5;
+  -o-transition: all 0.5;
+}
+
+.todo-elements {
+   width: 100%;
+   margin: 0;
+   display: flex;
+   flex-flow: column;
+}

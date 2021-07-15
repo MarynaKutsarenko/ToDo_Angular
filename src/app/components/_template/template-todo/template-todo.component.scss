@@ -1,0 +1,103 @@
+.todo {
+   width: 100%;
+   background-color: #fff;
+   margin: 0 0 1rem 0;
+   display: flex;
+   flex-flow: row;
+   justify-content: space-between;
+   align-items: stretch;
+   height: 100%;
+}
+
+.todo-content {
+   width: 100%;
+   display: flex;
+   flex-flow: row;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.handle {
+   background-color: #6AE2D6;
+   height: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   flex-flow: row;
+   cursor: grab;
+   width: 2rem;
+}
+
+.handle img {
+   width: 1rem*2;
+   height: 1rem*2;
+}
+
+.todo-content-check {
+   display: flex;
+   flex-flow: row;
+   margin: 1rem*2;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+.todo-content-check img {
+   width: 1rem*4;
+   height: 1rem*4;
+   z-index: 1;
+}
+
+.todo-content-title {
+   width: 100%;
+}
+
+input {
+   font-size: 2rem;
+   padding: 1rem;
+   color: #374855;
+   width: 100%;
+   border: none;
+   outline: none;
+}
+
+input:focus{
+   border-color: #6AE2D6;
+}
+
+input::placeholder {
+   opacity: 0.5;
+   font-style: italic;
+}
+
+.delete {
+   background-color: #fa1d1d;
+   display: block;
+   cursor: pointer;
+   color: #fff;
+   padding: 1rem*1.5;
+   font-size: 1rem;
+
+   span {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+   }
+}
+
+.todo.done {
+   .todo-content{
+      .hendle{
+         display: none;
+      }
+      .todo-content-title{
+         input {
+            opacity: 0.3;
+            text-decoration: line-through;
+         }
+      }
+   }
+}

@@ -1,0 +1,53 @@
+.todo-form {
+   width: 100%;
+   background-color: #6AE2D6;
+   margin: 0 0 1rem*2 0;
+   display: flex;
+   flex-flow: row;
+   justify-content: space-between;
+   align-items: stretch;
+   height: 1rem*8; 
+}
+
+.todo-content {
+   width: 100%;
+   display: flex;
+   flex-flow: row;
+   justify-content: flex-start;
+   align-items: stretch;
+}
+
+input {
+   font-size: 1rem;
+   padding: 1rem*2;
+   color: #374855;
+   outline: none;
+   background-color: #6AE2D6;
+   width: 100%;
+   border: none;
+   word-break: break-word;
+}
+input::placeholder {
+   opacity: 0.5;
+   font-style: italic;
+   color: #374855;
+}
+input:focus {
+   border: 1px solid aqua;
+}
+
+.create {
+   color: #fff;
+   padding: 1rem*2;
+   cursor: pointer;
+   background-color: #6AE2D6;
+   border-left: solid 1rem*0.1 #374855;
+}
+
+.addIssue {
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
