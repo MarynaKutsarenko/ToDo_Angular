@@ -1,5 +1,6 @@
 export interface Todo {
-   id: number,
+   id?: number,
    label?: string,
-   status: boolean
+   status: boolean,
+   position?: number
 }

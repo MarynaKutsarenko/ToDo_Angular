@@ -1,15 +1,24 @@
 <app-template-header></app-template-header>
 <div class="list-view">
-   <app-template-todo-form></app-template-todo-form>
-   <h4 class="subtitle">In progress <span>( 2 )</span></h4>
-   <div class="todo-elements">
-      <app-template-todo></app-template-todo>
+   <h4 class="subtitle"
+      (click)="todoShow=!todoShow"  
+   >  
+      In progress <span>( 2 )</span>
+   </h4>
+   <div *ngIf="todoShow" class="todo-elements">
+      <app-template-todo  *ngFor="let toDo of $todos" [toDo]="toDo"></app-template-todo>
    </div>
 
+   <app-template-todo-form></app-template-todo-form>
 
-   <h4 class="subtitle">Completed <span>( 2 )</span></h4>
-   <div class="todo-elements">
-      
+   <h4 class="subtitle"
+   (click)="todoDoneShow=!todoDoneShow"
+   >
+      Completed <span>( 2 )</span>
+   </h4>
+   <div class="todo-elements"
+      *ngIf="todoDoneShow">
+      <app-template-todo></app-template-todo>
    </div>
 
 </div>
