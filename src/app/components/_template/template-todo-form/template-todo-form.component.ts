@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../../../_interfaces/todo';
 @Component({
   selector: 'app-template-todo-form',
@@ -7,13 +7,22 @@ import { Todo } from '../../../_interfaces/todo';
 })
 export class TemplateTodoFormComponent implements OnInit {
 
-  @Input() toDo!: Todo;
+  public toDo$: Todo;
 
-  constructor() {}
+  @Output() ping: EventEmitter<Todo> = new EventEmitter<Todo>();
+
+  constructor() {
+    this.toDo$ = {
+      id: undefined,
+      label: undefined,
+      status: false,
+      position: undefined
+    }
+   }
   
   public createToDo(event?: any): void {
-    console.log(this.toDo);
-    this.toDo = {
+    this.ping.emit(this.toDo$)
+    this.toDo$ = {
       id: undefined,
       label: undefined,
       status: false,

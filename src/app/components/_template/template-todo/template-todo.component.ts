@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../../../_interfaces/todo';
+import { Eventping } from '../../../_interfaces/eventping';
+
 @Component({
   selector: 'app-template-todo',
   templateUrl: './template-todo.component.html',
@@ -7,30 +9,38 @@ import { Todo } from '../../../_interfaces/todo';
 })
 export class TemplateTodoComponent implements OnInit {
 
-  public toDo$: Todo;
+  @Input()toDo$: Todo= {} as Todo;
+  @Output()ping: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {
-      this.toDo$ = {
-        id: 1,
-        label: "",
-        status: false,
-        position: 1
-      }
-   }
+  constructor() {}
 
   public changeCheck(event?: any): void {
     this.toDo$.status = !this.toDo$.status;
+    const eventObject: Eventping = {
+      label: 'check',
+      object: this.toDo$
+    };
+    this.ping.emit(eventObject);
   }
 
   public changeLabel(event?: any): void {
-    console.log(this.toDo$.label);
+    this.toDo$.status = !this.toDo$.status;
+    const eventObject: Eventping = {
+      label: 'label',
+      object: this.toDo$
+    };
+    this.ping.emit(eventObject);
   }
   
   public deleteTodo(event?: any): void {
-    console.log(this.toDo$.id);
+    this.toDo$.status = !this.toDo$.status;
+    const eventObject: Eventping = {
+      label: 'delete',
+      object: this.toDo$
+    };
+    this.ping.emit(eventObject);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
