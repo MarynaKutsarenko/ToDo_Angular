@@ -5,8 +5,9 @@
       [(ngModel)]="toDo$.label" 
       placeholder="Enter todo..."/>
    </div>
-   <div class="create" 
+   <button class="create"
+      [disabled]="!toDo$.label" 
       (click)="createToDo($event)">
       <span class="addIssue">Add</span>
-   </div>
+   </button>
 </div>

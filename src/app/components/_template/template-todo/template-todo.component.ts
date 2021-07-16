@@ -10,7 +10,7 @@ import { Eventping } from '../../../_interfaces/eventping';
 export class TemplateTodoComponent implements OnInit {
 
   @Input()toDo$: Todo= {} as Todo;
-  @Output()ping: EventEmitter<any> = new EventEmitter<any>();
+  @Output()addNewTodo: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -20,25 +20,23 @@ export class TemplateTodoComponent implements OnInit {
       label: 'check',
       object: this.toDo$
     };
-    this.ping.emit(eventObject);
+    this.addNewTodo.emit(eventObject);
   }
 
   public changeLabel(event?: any): void {
-    this.toDo$.status = !this.toDo$.status;
     const eventObject: Eventping = {
       label: 'label',
       object: this.toDo$
     };
-    this.ping.emit(eventObject);
+    this.addNewTodo.emit(eventObject);
   }
   
   public deleteTodo(event?: any): void {
-    this.toDo$.status = !this.toDo$.status;
     const eventObject: Eventping = {
       label: 'delete',
       object: this.toDo$
     };
-    this.ping.emit(eventObject);
+    this.addNewTodo.emit(eventObject);
   }
 
   ngOnInit(): void {}

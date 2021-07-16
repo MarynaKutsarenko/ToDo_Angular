@@ -17,20 +17,7 @@ export class PageListComponent implements OnInit {
   constructor() {
     this.todoShow = true;
     this.todoDoneShow = false;
-    this.$todos = [
-      {
-        id: 0,
-        label: 'test',
-        status: false,
-        position: 1
-      },
-      {
-        id: 1,
-        label: 'test 2',
-        status: false,
-        position: 1
-      }
-    ];
+    this.$todos = [];
     this.$todosDone = [];
   }
 

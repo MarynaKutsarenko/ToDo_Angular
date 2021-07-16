@@ -9,7 +9,7 @@ export class TemplateTodoFormComponent implements OnInit {
 
   public toDo$: Todo;
 
-  @Output() ping: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() addNewTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor() {
     this.toDo$ = {
@@ -20,8 +20,8 @@ export class TemplateTodoFormComponent implements OnInit {
     }
    }
   
-  public createToDo(event?: any): void {
-    this.ping.emit(this.toDo$)
+  public createToDo(event: any): void {
+    this.addNewTodo.emit(this.toDo$);
     this.toDo$ = {
       id: undefined,
       label: undefined,
