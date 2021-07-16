@@ -1,16 +1,15 @@
 <div class="todo" [class.done]="toDo$.status">
   <div class="todo-content">
-    <div class="handle">
-      <!-- <img src="../../../../assets/images/drag.png"> -->
-    </div>
+    <div class="handle"></div>
     <div class="todo-content-check">
 
-      <img *ngIf="!toDo$.status" (click)="changeCheck($event)" 
+      <img *ngIf="!toDo$.status" 
+        (click)="changeCheck($event)" 
         src="../../../../assets/images/checkbox-empty.png"/>
 
-      <img *ngIf="toDo$.status" (click)="changeCheck($event)"  
+      <img *ngIf="toDo$.status" 
+        (click)="changeCheck($event)"  
         src="../../../../assets/images/checkbox-done.png" />
-
     </div>
 
     <div class="todo-content-title">
@@ -25,5 +24,3 @@
       <span>Delete</span>
   </div>
 </div>
-
-       <!-- [attr.disabled]="toDo$.status"  -->
