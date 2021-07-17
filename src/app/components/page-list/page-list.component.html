@@ -18,7 +18,8 @@
       (addNewTodo)="create($event)" >
    </app-template-todo-form>
 
-   <h4 class="subtitle" (click)="todoDoneShow=!todoDoneShow">
+   <h4 class="subtitle" 
+      (click)="todoDoneShow=!todoDoneShow">
       Completed <span>( {{ $todosDone.length }} )</span>
    </h4>
    

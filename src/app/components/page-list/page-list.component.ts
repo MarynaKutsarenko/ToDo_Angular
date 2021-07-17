@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../_interfaces/todo';
 import { Eventping } from '../../_interfaces/eventping';
+import { DataStoreService } from 'src/app/_services/dataStore.service';
 
 @Component({
   selector: 'app-page-list',
@@ -14,7 +15,7 @@ export class PageListComponent implements OnInit {
   public $todos: Todo[];
   public $todosDone!: Todo[];
 
-  constructor() {
+  constructor(public dataStoreService: DataStoreService) {
     this.todoShow = true;
     this.todoDoneShow = false;
     this.$todos = [];

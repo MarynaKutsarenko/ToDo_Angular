@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../../../_interfaces/todo';
 import { Eventping } from '../../../_interfaces/eventping';
-
+import { DataStoreService } from 'src/app/_services/dataStore.service';
 @Component({
   selector: 'app-template-todo',
   templateUrl: './template-todo.component.html',
@@ -12,7 +12,7 @@ export class TemplateTodoComponent implements OnInit {
   @Input()toDo$: Todo= {} as Todo;
   @Output()addNewTodo: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {}
+  constructor(private dataStoreService: DataStoreService) {}
 
   public changeCheck(event?: any): void {
     this.toDo$.status = !this.toDo$.status;

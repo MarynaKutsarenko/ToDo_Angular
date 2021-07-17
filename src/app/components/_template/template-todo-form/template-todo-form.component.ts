@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DataStoreService } from 'src/app/_services/dataStore.service';
 import { Todo } from '../../../_interfaces/todo';
 @Component({
   selector: 'app-template-todo-form',
@@ -11,7 +12,7 @@ export class TemplateTodoFormComponent implements OnInit {
 
   @Output() addNewTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  constructor() {
+  constructor(private dataStoreService: DataStoreService) {
     this.toDo$ = {
       id: undefined,
       label: undefined,
