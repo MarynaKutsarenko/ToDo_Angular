@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Todo } from '../../../_interfaces/todo';
 @Component({
   selector: 'app-template-todo-form',
