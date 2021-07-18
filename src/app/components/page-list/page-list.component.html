@@ -3,7 +3,8 @@
 
    <h4 class="subtitle"
       (click)="todoShow=!todoShow">  
-         In progress <span>( {{ $todos.length }} )</span>
+         In progress 
+         <span>( {{ $todos.length }} )</span>
    </h4>
 
    <div *ngIf="todoShow" class="todo-elements">
@@ -20,7 +21,8 @@
 
    <h4 class="subtitle" 
       (click)="todoDoneShow=!todoDoneShow">
-      Completed <span>( {{ $todosDone.length }} )</span>
+      Completed 
+      <span>( {{ $todosDone.length }} )</span>
    </h4>
    
    <div class="todo-elements"

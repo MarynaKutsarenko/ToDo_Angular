@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../_interfaces/todo';
 import { Eventping } from '../../_interfaces/eventping';
-import { DataStoreService } from 'src/app/_services/dataStore.service';
+import { DoYourStuff } from 'src/app/db/data';
+
 
 @Component({
   selector: 'app-page-list',
@@ -12,29 +13,24 @@ export class PageListComponent implements OnInit {
 
   public todoShow: boolean = true;
   public todoDoneShow: boolean = false;
-  public $todos: Todo[];
-  public $todosDone!: Todo[];
+  public $todos: Todo[] = DoYourStuff;
+  public $todosDone: Todo[] = [];
 
-  constructor(public dataStoreService: DataStoreService) {
+  constructor() {
     this.todoShow = true;
     this.todoDoneShow = false;
-    this.$todos = [];
-    this.$todosDone = [];
   }
 
   ngOnInit(): void {
   }
 
   public create(event: Todo): void {
-    console.log(event);
-    
     event.position = this.$todos.length + 1;
     this.$todos.push(event);
   }
 
   public update(event: Eventping): void {
     if ('check' == event.label) {
-      console.log(`"${event.label}"`);
       if (!event.object.status) {
         this.$todosDone.splice(this.$todosDone.indexOf(event.object), 1);
         this.$todos.push(event.object);
@@ -45,7 +41,6 @@ export class PageListComponent implements OnInit {
     }
 
     if ('delete' === event.label) {
-      console.log(`${event.label}`);
       if (event.object.status) {
         this.$todosDone.splice(this.$todosDone.indexOf(event.object), 1);
       } else {
@@ -54,7 +49,6 @@ export class PageListComponent implements OnInit {
     }
 
     if ('label' === event.label) {
-      console.log(`${event.label}`);
       if (event.object.status) {
         this.$todosDone.forEach((toDo: Todo) => {
           if (toDo.id === event.object.id) {
@@ -69,7 +63,6 @@ export class PageListComponent implements OnInit {
         });
       }
     }
-    console.log(this.$todos);
   }
 
 }
