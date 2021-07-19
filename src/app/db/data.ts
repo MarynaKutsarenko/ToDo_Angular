@@ -1,7 +1,7 @@
 export const DoYourStuff = [
    {
       "id": 1,
-      "label": "hi",
+      "label": "smile",
       "status": false,
       "position": 0
    }

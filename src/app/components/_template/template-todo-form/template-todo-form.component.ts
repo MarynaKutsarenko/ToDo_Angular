@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Todo } from '../../../_interfaces/todo';
 @Component({
   selector: 'app-template-todo-form',
@@ -8,26 +8,28 @@ import { Todo } from '../../../_interfaces/todo';
 export class TemplateTodoFormComponent implements OnInit {
 
   public toDo$: Todo;
+  public id: number=0;
 
   @Output() addNewTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor() {
     this.toDo$ = {
-      id: undefined,
+      id: this.id++,
       label: '',
       status: false,
-      position: undefined
+      position: 0
     }
    }
   
   public createToDo(event: any): void {
     this.addNewTodo.emit(this.toDo$);
     this.toDo$ = {
-      id: undefined,
+      id: this.id++,
       label: '',
       status: false,
-      position: undefined
-    }
+      position: 0
+    };
+    
   }
 
   ngOnInit(): void {

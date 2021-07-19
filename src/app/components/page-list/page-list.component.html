@@ -2,9 +2,10 @@
 <div class="list-view">
 
    <h4 class="subtitle"
-      (click)="todoShow=!todoShow">  
+      (click)="todoShow=!todoShow"
+   >  
          In progress 
-         <span>( {{ $todos.length }} )</span>
+      <span>( {{ $todos.length }} )</span>
    </h4>
 
    <div *ngIf="todoShow" class="todo-elements">
@@ -16,11 +17,13 @@
    </div>
 
    <app-template-todo-form 
-      (addNewTodo)="create($event)" >
+      (addNewTodo)="create($event)" 
+   >
    </app-template-todo-form>
 
    <h4 class="subtitle" 
-      (click)="todoDoneShow=!todoDoneShow">
+      (click)="todoDoneShow=!todoDoneShow"
+   >
       Completed 
       <span>( {{ $todosDone.length }} )</span>
    </h4>
@@ -28,9 +31,10 @@
    <div class="todo-elements"
       *ngIf="todoDoneShow">
       <app-template-todo
-         (addNewTodo)="update($event)"  
          *ngFor="let toDo of $todosDone"
-         [toDo$]="toDo">
+         [toDo$]="toDo"
+         (addNewTodo)="update($event)" 
+      >
 
       </app-template-todo>
    </div>

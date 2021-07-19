@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../_interfaces/todo';
-import { Eventping } from '../../_interfaces/eventping';
+import { EventTodo } from '../../_interfaces/eventping';
 import { DoYourStuff } from 'src/app/db/data';
 
 
@@ -21,15 +21,13 @@ export class PageListComponent implements OnInit {
     this.todoDoneShow = false;
   }
 
-  ngOnInit(): void {
-  }
 
   public create(event: Todo): void {
     event.position = this.$todos.length + 1;
     this.$todos.push(event);
   }
 
-  public update(event: Eventping): void {
+  public update(event: EventTodo): void {
     if ('check' == event.label) {
       if (!event.object.status) {
         this.$todosDone.splice(this.$todosDone.indexOf(event.object), 1);
@@ -64,5 +62,7 @@ export class PageListComponent implements OnInit {
       }
     }
   }
-
+  
+  ngOnInit(): void {
+  }
 }
